@@ -1,103 +1,60 @@
-import { useEffect, useState, useRef } from "react";
-import Mode from './Mode'
-import {
-    arrowSvg,
-    homeSvg,
-    menuSvg,
-    assignment,
-    call,
-    close,
-} from "../assets";
+import { useState } from "react";
+import { Menu, X, Code2, ArrowUpRight } from "lucide-react";
+import Mode from "./Mode";
+
+const links = [
+  { href: "#Head", label: "Accueil" },
+  { href: "#About", label: "À propos" },
+  { href: "#Cursus", label: "Parcours" },
+  { href: "#Contact", label: "Contact" },
+];
 
 const Header = () => {
-    const [isOpen, SetIsOpen] = useState(false);
-    const [isMenuOpen, SetIsMenuOpen] = useState(false);
-    const aboutRef = useRef(null);
-    const mobileMenuRef = useRef(null);
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (aboutRef.current && !aboutRef.current.contains(e.target)) {
-                SetIsOpen(false);
-            }
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-            if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
-                SetIsMenuOpen(false);
-            }
-        };
+  return (
+    <header id="Head" className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#080d18]/80 backdrop-blur-xl">
+      <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12" aria-label="Navigation principale">
+        <a href="#Head" className="group flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
+          <span className="flex size-10 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200 transition group-hover:border-cyan-200/50">
+            <Code2 size={21} strokeWidth={1.8} />
+          </span>
+          <span className="text-base font-bold tracking-tight text-white">Anass<span className="text-cyan-300">.dev</span></span>
+        </a>
 
-        document.addEventListener("mousedown", handleClickOutside);
+        <div className="hidden items-center gap-1 md:flex">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className="rounded-full px-4 py-2 text-sm font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+              {link.label}
+            </a>
+          ))}
+          <a href="#Contact" className="ml-3 inline-flex items-center gap-2 rounded-full bg-cyan-300 px-4 py-2.5 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
+            Parlons ensemble <ArrowUpRight size={16} />
+          </a>
+        </div>
 
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-    return (
-        <>
-            <header id="Head" className="mx-auto flex h-20 max-w-7xl  bg-cyan-950 w-full text-white
-             items-center md:justify-between max-md:justify-around px-4 sm:px-6 md:px-8 lg:px-10 text-[clamp(1rem,2vw,1.25rem)]">
-                <span>Portfolio</span>
-                <div className="max-md:hidden py-3 px-3 flex items-center justify-center">
-                    <a href="" className="px-3 py-2 m-2 relative 
-                        flex items-center justify-center
-                        after:rounded-full
-                        after:contente-[''] after:w-0 after:h-0.5 after:bg-white after:absolute 
-                        hover:after:w-full after:transition-all
-                        after:left-0 after:bottom-0 ">
-                        <img src={homeSvg} alt="Home" className="size-5 mr-2" />
-                        Accueil</a>
-                    <button ref={aboutRef}
-                        onClick={() => SetIsOpen(!isOpen)} className={`px-3 py-2 m-2 relative 
-                        flex items-center justify-center
-                        after:rounded-full
-                        after:contente-[''] after:w-0 after:h-0.5 after:bg-white after:absolute 
-                        after:transition-all
-                        ${isOpen ? "hover:after:w-0" : "hover:after:w-full"}
-                        after:left-0 after:bottom-0 `}>
-                        <img src={assignment} alt="Home" className="size-5 mr-2" />
-                        À propos
-                        <img src={arrowSvg} alt="" className={`size-5 ml-2 ${isOpen ? "animate-open-arrow" : ""} `} />
-                        <div className={`absolute flex-col w-full h-auto py-3 bg-cyan-950 top-full z-50 rounded-lg shadow-lg shadow-black
-                                left-0 ${isOpen ? "flex animate-menu-open" : "hidden"} text-[clamp(0.5rem,1vw,0.75rem)`}>
-                            <a href="#About" className="py-2 hover:bg-white/10 overflow-hidden line-clamp-1 ">À propos</a>
-                            <a href="#Cursus" className="py-2 hover:bg-white/10 overflow-hidden line-clamp-1 ">Cursus</a>
-                        </div>
-                    </button>
-                    <a href="#Contact" className="px-3 py-2 m-2 relative 
-                        flex items-center justify-center
-                        after:rounded-full
-                        after:contente-[''] after:w-0 after:h-0.5 after:bg-white after:absolute 
-                        hover:after:w-full after:transition-all
-                        after:left-0 after:bottom-0 ">
-                        <img src={call} alt="Home" className="size-5 mr-2" />
-                        Contact</a>
-                </div>
-                <Mode></Mode>
-                <div ref={mobileMenuRef}
-                    className="md:hidden relative py-1 px-1 flex items-center   rounded-full hover:cursor-pointer
-                    justify-center" >
-                    {
-                        isMenuOpen ?
-                            <img src={close} alt="Home" className="size-8 " onClick={() => { SetIsMenuOpen(!isMenuOpen) }} /> :
-                            <img src={menuSvg} alt="Home" className="size-8" onClick={() => { SetIsMenuOpen(!isMenuOpen) }} />
-                    }
+        <div className="flex items-center gap-2 md:hidden">
+          <Mode />
+          <button type="button" aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-200 transition hover:bg-white/10">
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+        <div className="hidden md:block"><Mode /></div>
+      </nav>
 
-                    <div
-                        className={`absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2
-                        flex-col w-30 h-auto rounded-lg bg-cyan-950 shadow-lg shadow-black
-                         py-2
-                        text-[clamp(1rem,2vw,1.25rem)]
-                        ${isMenuOpen
-                                ? "flex animate-menu-open"
-                                : "hidden "
-                            }`}
-                    >
-                        <a href="#About" className="w-full text-center py-2 hover:bg-white/10">À propos</a>
-                        <a href="#Contact" className="w-full text-center py-2 hover:bg-white/10">Contact</a>
-                    </div>
-                </div>
-            </header>
-        </>
-    )
-}
+      {isMenuOpen && (
+        <div className="border-t border-white/10 bg-[#0b1120] px-5 py-4 md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1">
+            {links.map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className="rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/[0.06] hover:text-cyan-200">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default Header;
