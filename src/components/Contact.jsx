@@ -1,58 +1,41 @@
-import {
-    alternate_email,
-    call,
-    download,
-     location,
-     github,
-} from "../assets/index";
-const Contact = () => {
-    return (
-        <>
-            <main id="Contact"
-                className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-15 py-16 min-h-dvh">
-                <section className="flex flex-col gap-8 py-2 relative">
-                    <div className="space-y-3">
-                        <span className="text-[clamp(0.75rem,2vw,1rem)] font-semibold uppercase tracking-widest text-blue-500">
-                            Contact
-                        </span>
+import { Mail, Phone, MapPin, Github, ArrowUpRight } from "lucide-react";
 
-                        <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold text-slate-900 dark:text-white">
-                            Contactez-moi
-                        </h1>
+const contacts = [
+  { label: "E-mail", value: "anassrjeb929@gmail.com", href: "mailto:anassrjeb929@gmail.com", icon: Mail },
+  { label: "Téléphone", value: "+212 665 019 496", href: "tel:+212665019496", icon: Phone },
+  { label: "Localisation", value: "Fès, Maroc", href: "https://maps.google.com/?q=Fes,Morocco", icon: MapPin, external: true },
+  { label: "GitHub", value: "github.com/Rjeb-Anas", href: "https://github.com/Rjeb-Anas", icon: Github, external: true },
+];
 
-                        <p className="max-w-xl text-slate-600 dark:text-slate-400 text-[clamp(0.9rem,1.5vw,1rem)]">
-                             N'hésitez pas à me contacter pour toute opportunité, collaboration ou simplement pour échanger sur un projet.
-                        </p>
-                    </div>
-                    <hr className="border-slate-800" />
-                    <div className="w-full p-1 flex items-center justify-center">
-                                         <div className="md:w-[50%] w-[90%] px-2 py-3 h-auto flex gap-5 flex-wrap justify-center ">
-                                            <a data-animation="animate-visible-left" href="" className=" opacity-0 flex flex-row py-2 px-3 border items-center gap-3 
-                                            rounded-lg hover:translate-y-1 transition-all min-w-65 ">
-                                                <img  src={alternate_email} alt="Home" className="size-11 bg-blue-500 p-2 rounded-xl" />
-                                                <span className="h-full flex items-center justify-center">anassrjeb929@gmail.com</span>
-                                            </a>
-                                            <a data-animation="animate-visible-right" href="" className="opacity-0 flex flex-row py-2 px-3 border items-center gap-3 
-                                            rounded-lg hover:translate-y-1 transition-all min-w-65 ">
-                                                <img  src={call} alt="Home" className="size-11 bg-blue-500 p-2 rounded-xl" />
-                                                <span className="h-full flex items-center justify-center">+212 665019496</span>
-                                            </a> 
-                                            <a data-animation="animate-visible-left" href="" className="opacity-0 flex flex-row py-2 px-3 border items-center gap-3 
-                                            rounded-lg hover:translate-y-1 transition-all min-w-65 ">
-                                                <img  src={location} alt="Home" className="size-11 bg-blue-500 p-2 rounded-xl" />
-                                                <span className="h-full flex items-center justify-center">Maroc ,Fès</span>
-                                            </a> 
-                                            <a data-animation="animate-visible-right" href="https://github.com/Rjeb-Anas" target="_blank" className="opacity-0 flex flex-row py-2 px-3 border items-center gap-3 
-                                            rounded-lg hover:translate-y-1 transition-all min-w-65 ">
-                                                <img  src={github} alt="Home" className="size-11 bg-blue-500 p-2 rounded-xl" />
-                                                <span className="h-full flex items-center justify-center">github.com/Rjeb-Anas</span>
-                                            </a>               
-                                        </div>
-                                       </div>
-                </section>
-            </main>
-        </>
-    )
-}
+const Contact = () => (
+  <section id="Contact" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="contact-title">
+    <div className="relative overflow-hidden rounded-[2rem] border border-cyan-200/15 bg-gradient-to-br from-cyan-300/[0.09] via-slate-900/80 to-indigo-400/[0.08] p-6 sm:p-10 lg:p-14">
+      <div className="absolute -right-20 -top-28 size-72 rounded-full bg-cyan-300/10 blur-3xl" aria-hidden="true" />
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+        <div>
+          <span className="section-kicker">Contact</span>
+          <h2 id="contact-title" className="section-title mt-5">Une idée en tête ?<br /><span className="text-gradient">Discutons-en.</span></h2>
+          <p className="mt-5 max-w-md leading-7 text-slate-400">Une opportunité, une collaboration ou un projet à construire ensemble ? Je serais ravi d'en parler avec vous.</p>
+          <a href="mailto:anassrjeb929@gmail.com" className="mt-7 inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
+            Envoyer un e-mail <ArrowUpRight size={17} />
+          </a>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          {contacts.map(({ label, value, href, icon: Icon, external }) => (
+            <a key={label} href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className="group flex min-w-0 items-center gap-4 rounded-2xl border border-white/10 bg-[#080d18]/55 p-4 transition hover:-translate-y-1 hover:border-cyan-200/30 hover:bg-[#080d18]/80">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] text-cyan-200 transition group-hover:bg-cyan-300/10"><Icon size={20} /></span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs font-medium uppercase tracking-wider text-slate-500">{label}</span>
+                <span className="mt-1 block break-words text-sm font-semibold text-slate-200 transition group-hover:text-cyan-100">{value}</span>
+              </span>
+              <ArrowUpRight size={16} className="shrink-0 text-slate-600 transition group-hover:text-cyan-200" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default Contact;
