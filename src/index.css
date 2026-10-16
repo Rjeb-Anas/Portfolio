@@ -39,7 +39,12 @@ button, a { outline-offset: 4px; }
 }
 .ambient-one { top: 15rem; left: -14rem; background: #06b6d4; }
 .ambient-two { top: 75rem; right: -15rem; background: #6366f1; }
-
+.text-gradient {
+  background: linear-gradient(100deg, #a5f3fc 0%, #22d3ee 45%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .section-kicker {
   display: inline-flex;
   align-items: center;
