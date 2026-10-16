@@ -23,8 +23,8 @@ const Home = () => (
           <a href="#Contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3.5 font-bold text-slate-950 transition hover:-translate-y-1 hover:bg-cyan-200">
             Me contacter <ArrowUpRight size={18} />
           </a>
-          <a href={`data:application/pdf;base64,${cvPdfBase64}`} download="CV_Anass_Rjeb_Licence_Cybersecurite.pdf" className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/[0.08] px-6 py-3.5 font-semibold text-cyan-100 transition hover:-translate-y-1 hover:border-cyan-200/60 hover:bg-cyan-300/[0.14]">
-            <FileDown size={18} /> Télécharger mon CV (PDF)
+          <a href={`data:application/pdf;base64,${cvPdfBase64}`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/[0.08] px-6 py-3.5 font-semibold text-cyan-100 transition hover:-translate-y-1 hover:border-cyan-200/60 hover:bg-cyan-300/[0.14]">
+            <FileDown size={18} /> Voir mon CV
           </a>
           <a href="https://github.com/Rjeb-Anas" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.08]">
             <Code2 size={18} /> Voir GitHub
