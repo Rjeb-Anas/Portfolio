@@ -1,10 +1,10 @@
-import { Mail, Phone, MapPin, Github, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Code2, ArrowUpRight } from "lucide-react";
 
 const contacts = [
   { label: "E-mail", value: "anassrjeb929@gmail.com", href: "mailto:anassrjeb929@gmail.com", icon: Mail },
   { label: "Téléphone", value: "+212 665 019 496", href: "tel:+212665019496", icon: Phone },
   { label: "Localisation", value: "Fès, Maroc", href: "https://maps.google.com/?q=Fes,Morocco", icon: MapPin, external: true },
-  { label: "GitHub", value: "github.com/Rjeb-Anas", href: "https://github.com/Rjeb-Anas", icon: Github, external: true },
+  { label: "GitHub", value: "github.com/Rjeb-Anas", href: "https://github.com/Rjeb-Anas", icon: Code2, external: true },
 ];
 
 const Contact = () => (
