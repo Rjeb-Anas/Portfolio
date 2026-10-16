@@ -1,4 +1,4 @@
-import { ArrowDownToLine, ArrowUpRight, BriefcaseBusiness, Code2, GraduationCap, Mail, MapPin, Phone, Printer } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Code2, GraduationCap, Mail, MapPin, Phone, Printer } from "lucide-react";
 
 const projects = [
   {
