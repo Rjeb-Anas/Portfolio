@@ -4,7 +4,6 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Cursus from "./components/Cursus";
 import Contact from "./components/Contact";
-import CV from "./components/CV";
 
 function App() {
   useEffect(() => {
@@ -33,7 +32,6 @@ function App() {
         <Home />
         <About />
         <Cursus />
-        <CV />
         <Contact />
         <footer className="flex flex-col gap-2 border-t border-white/10 py-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Anass Rjeb</span>
