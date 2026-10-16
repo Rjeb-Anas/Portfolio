@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X, Code2, ArrowUpRight } from "lucide-react";
-import Mode from "./Mode";
 
 const links = [
   { href: "#Head", label: "Accueil" },
@@ -33,13 +32,9 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <Mode />
-          <button type="button" aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-200 transition hover:bg-white/10">
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-        <div className="hidden md:block"><Mode /></div>
+        <button type="button" aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-200 transition hover:bg-white/10 md:hidden">
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </nav>
 
       {isMenuOpen && (
@@ -50,6 +45,9 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
+            <a href="#Contact" onClick={() => setIsMenuOpen(false)} className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-300 px-4 py-3 text-sm font-bold text-slate-950">
+              Parlons ensemble <ArrowUpRight size={16} />
+            </a>
           </div>
         </div>
       )}
