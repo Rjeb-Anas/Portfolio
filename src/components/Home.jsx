@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Github, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Code2, Sparkles } from "lucide-react";
 import profileImage from "../assets/img.png";
 
 const Home = () => (
@@ -22,7 +22,7 @@ const Home = () => (
             Me contacter <ArrowUpRight size={18} />
           </a>
           <a href="https://github.com/Rjeb-Anas" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.08]">
-            <Github size={18} /> Voir GitHub
+            <Code2 size={18} /> Voir GitHub
           </a>
         </div>
         <a href="#About" className="mt-12 inline-flex items-center gap-2 text-sm text-slate-500 transition hover:text-cyan-200">
