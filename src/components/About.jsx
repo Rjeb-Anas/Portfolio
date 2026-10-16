@@ -1,4 +1,4 @@
-import { ArrowDownToLine, Eye, Code2, Server, Wrench, Layers3 } from "lucide-react";
+import { Code2, Server, Wrench, Layers3 } from "lucide-react";
 
 const skillGroups = [
   { title: "Front-End", icon: Code2, skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"], number: "01" },
@@ -16,11 +16,8 @@ const About = () => (
           Je suis étudiant en Génie Informatique à la Faculté des Sciences et Techniques de Fès. Passionné par le développement web, la cybersécurité et les nouvelles technologies, j'aime concevoir des applications utiles et continuer à apprendre à chaque projet.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/Portfolio--S/CV_Anass_Rjeb.pdf" download className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
-            <ArrowDownToLine size={17} /> Télécharger mon CV
-          </a>
-          <a href="/Portfolio--S/CV_Anass_Rjeb.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-cyan-200/40 hover:text-cyan-200">
-            <Eye size={17} /> Voir le CV
+          <a href="#CV" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
+            Découvrir mon CV
           </a>
         </div>
         <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
