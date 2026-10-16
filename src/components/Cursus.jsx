@@ -1,131 +1,62 @@
-import {
-  school,
-  jamboard,
+import { GraduationCap, School, CalendarDays } from "lucide-react";
 
-} from "../assets";
-const Cursus = () => {
+const education = [
+  {
+    title: "Baccalauréat SPC",
+    place: "Lycée Mazarin",
+    period: "2023 — 2024",
+    description: "Sciences physiques, mathématiques et sciences fondamentales : une base solide pour poursuivre des études en ingénierie et en informatique.",
+    icon: School,
+    status: "Obtenu",
+  },
+  {
+    title: "DEUST — Génie Informatique",
+    place: "Faculté des Sciences et Techniques de Fès · USMBA",
+    period: "2024 — 2026",
+    description: "Formation en développement logiciel, bases de données, algorithmique, réseaux, systèmes d'exploitation et projets pratiques.",
+    icon: GraduationCap,
+    status: "Terminé",
+  },
+  {
+    title: "Licence",
+    place: "Faculté des Sciences et Techniques de Fès",
+    period: "2026 — en cours",
+    description: "Poursuite du parcours universitaire et approfondissement des connaissances en informatique.",
+    icon: GraduationCap,
+    status: "En cours",
+  },
+];
 
-  return (
-    <main
-      id="Cursus"
-      className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-15 py-16 min-h-dvh"
-    >
-      <section className="flex flex-col gap-8 py-2 relative">
+const Cursus = () => (
+  <section id="Cursus" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="cursus-title">
+    <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div>
+        <span className="section-kicker">Formation</span>
+        <h2 id="cursus-title" className="section-title mt-5">Mon parcours<br /><span className="text-gradient">académique.</span></h2>
+      </div>
+      <p className="max-w-md leading-7 text-slate-400">Chaque étape m'a permis de consolider mes bases et de me rapprocher de mon objectif : créer des solutions numériques utiles.</p>
+    </div>
 
-        <div className="space-y-3">
-          <span className="text-[clamp(0.75rem,2vw,1rem)] font-semibold uppercase tracking-widest text-blue-500">
-            Cursus
-          </span>
-
-          <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold text-slate-900 dark:text-white">
-            Mon Parcours Académique
-          </h1>
-
-          <p className="max-w-xl text-slate-600 dark:text-slate-400 text-[clamp(0.9rem,1.5vw,1rem)]">
-            Un parcours de formation qui a développé mes compétences et renforcé ma passion pour l'informatique et les nouvelles technologies.
-          </p>
-        </div>
-        <hr className="border-slate-800" />
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full h-auto flex flex-col gap-5  ">
-            <article
-              data-animation="animate-visible-bottom"
-              className="opacity-0 w-full flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border border-blue-400 hover:border-blue-500 transition-all"
-            >
-              <div className="size-16 md:size-20 shrink-0 p-3 bg-blue-500 rounded-xl flex items-center justify-center">
-                <img
-                  src={school}
-                  alt="Baccalauréat SPC"
-                  className="size-full object-contain"
-                />
+    <div className="relative ml-3 space-y-5 border-l border-cyan-200/20 pl-7 sm:ml-5 sm:pl-10">
+      {education.map(({ title, place, period, description, icon: Icon, status }) => (
+        <article key={title} data-reveal className="glass-card reveal relative rounded-2xl p-5 sm:p-7">
+          <span className="absolute -left-[2.13rem] top-8 size-3 rounded-full border-2 border-cyan-200 bg-[#0b1120] shadow-[0_0_16px_rgba(103,232,249,.35)] sm:-left-[2.88rem]" />
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-cyan-200/15 bg-cyan-300/10 text-cyan-200"><Icon size={23} /></div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="text-lg font-bold text-white sm:text-xl">{title}</h3>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${status === "En cours" ? "bg-emerald-300/10 text-emerald-200" : "bg-white/[0.06] text-slate-400"}`}>{status}</span>
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-lg">
-                  Baccalauréat SPC
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base">
-                  Lycée Mazarin
-                </p>
-                <hr className="my-2 border-gray-400" />
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                  Obtention du Baccalauréat en Sciences Physiques, offrant une base
-                  solide en mathématiques, physique et sciences fondamentales,
-                  préparant à des études supérieures en ingénierie et en informatique.
-                </p>
-              </div>
-              <span
-                className="self-start md:self-center shrink-0 whitespace-nowrap rounded-full bg-blue-500/50 px-3 py-1 text-sm"
-              >
-                2023 - 2024
-              </span>
-            </article>
-            <article
-              data-animation="animate-visible-bottom"
-              className="opacity-0 w-full flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border border-blue-400 hover:border-blue-500 transition-all"
-            >
-              <div className="size-16 md:size-20 shrink-0 p-3 bg-blue-500 rounded-xl flex items-center justify-center">
-                <img
-                  src={jamboard}
-                  alt="DEUST"
-                  className="size-full object-contain"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-lg">
-                  DEUST
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base">
-                  Faculté des Sciences et Techniques de Fès
-                </p>
-                <hr className="my-2 border-gray-400" />
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                  Formation en Génie Informatique à la FST de Fès (USMBA), avec
-                  l'acquisition de solides compétences en développement logiciel,
-                  bases de données, algorithmique, réseaux, systèmes d'exploitation
-                  et réalisation de projets pratiques.
-                </p>
-              </div>
-              <span
-                className="self-start md:self-center shrink-0 whitespace-nowrap rounded-full bg-blue-500/50 px-3 py-1 text-sm"
-              >
-                2024 - 2026
-              </span>
-            </article>
-            <article
-              data-animation="animate-visible-bottom"
-              className="opacity-0 flex flex-col md:flex-row items-start md:items-center gap-4 rounded-2xl border
-               border-blue-400 hover:border-blue-500 p-4 transition-colors"
-            >
-              <div className="size-16 md:size-20 shrink-0 bg-blue-500 rounded-xl flex items-center justify-center p-3">
-                <img
-                  src={jamboard}
-                  alt="Licence"
-                  className="size-full object-contain"
-                />
-              </div>
-              <div className="flex-1 w-full">
-                <h3 className="font-bold text-lg">
-                  LICENCE
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base">
-                  Faculté des Sciences et Techniques de Fès
-                </p>
-                <hr className="my-2 border-gray-700" />
-                <p className="text-gray-400 text-sm md:text-base">
-                  {/* Description */}
-                </p>
-              </div>
-              <span
-                className="self-start md:self-center whitespace-nowrap rounded-full bg-blue-500/50 px-3 py-1 text-xs sm:text-sm"
-              >
-                2026 - en cours
-              </span>
-            </article>
+              <p className="mt-1 text-sm text-cyan-100/70">{place}</p>
+              <p className="mt-4 max-w-3xl leading-7 text-slate-400">{description}</p>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-2 text-sm text-slate-500"><CalendarDays size={15} /> {period}</span>
           </div>
-        </div>
-      </section>
-    </main>
-  );
-};
+        </article>
+      ))}
+    </div>
+  </section>
+);
 
 export default Cursus;
