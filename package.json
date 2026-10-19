@@ -1,9 +1,9 @@
 {
-  "name": "Portfolio--S",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Rjeb-Anas.github.io/Portfolio--S",
+  "homepage": "https://rjeb-anas.github.io/Portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
