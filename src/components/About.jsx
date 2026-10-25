@@ -16,7 +16,7 @@ const About = () => (
           Je suis étudiant en Génie Informatique à la Faculté des Sciences et Techniques de Fès. Passionné par le développement web, la cybersécurité et les nouvelles technologies, j'aime concevoir des applications utiles et continuer à apprendre à chaque projet.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="Portfolio/public/CV_Anass_Rjeb.pdf" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
+          <a href="/public/CV_Anass_Rjeb.pdf" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200">
             Découvrir mon CV
           </a>
         </div>
